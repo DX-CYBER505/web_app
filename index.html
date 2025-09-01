@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pochi Pochi Earn</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <span id="user-id">ID: Loading...</span>
+            <span id="balance">BALANCE: 0 POINTS</span>
+        </header>
+
+        <main class="main-content">
+            <section id="ads-section" class="active-section">
+                <h2>Watch Ads & Earn</h2>
+                <div class="ad-tabs">
+                    <button class="tab-button active">Quick Ads ⚡️</button>
+                    <button class="tab-button">Mega Ads 🔥</button>
+                </div>
+                <div class="card ad-card">
+                    <h3>Quick Ads</h3>
+                    <p class="info-text">30 ads remaining today</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="daily-progress" style="width: 0%;"></div>
+                    </div>
+                    <button class="action-button primary" id="watch-ad-btn">▶️ Watch Ad Now</button>
+                </div>
+            </section>
+            
+            <section id="refer-section" class="hidden">
+                <h2>Referral & Check-in</h2>
+                <div class="card">
+                    <h3>🎁 Daily Check-in</h3>
+                    <p class="info-text" id="checkin-status">Not checked-in yet.</p>
+                    <button class="action-button primary" id="checkin-btn">Check-in Now</button>
+                </div>
+                <div class="card">
+                    <h3>👥 Refer & Earn</h3>
+                    <p class="info-text">Share your link and earn <span class="highlight">500</span> points per referral!</p>
+                    <button class="action-button primary" id="get-referral-link">Get Referral Link</button>
+                </div>
+            </section>
+
+            <section id="withdraw-section" class="hidden">
+                <h2>Withdraw Funds</h2>
+                <div class="card">
+                    <h3>🪙 Swap to USDT</h3>
+                    <p class="info-text">10,000 points = 1 USDT</p>
+                    <button class="action-button primary" id="swap-to-usdt-btn">Swap Now</button>
+                </div>
+                
+                <div class="card">
+                    <h3>💳 Withdraw USDT</h3>
+                    <p class="info-text">Select your withdrawal method.</p>
+                    <div class="button-group">
+                        <button class="action-button secondary" id="binance-btn">Binance</button>
+                        <button class="action-button secondary" id="trust-wallet-btn">Trust Wallet</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer-nav">
+            <button class="nav-btn active" data-section="ads">
+                <span>⚡️</span>
+                <span>Ads</span>
+            </button>
+            <button class="nav-btn" data-section="refer">
+                <span>👥</span>
+                <span>Refer</span>
+            </button>
+            <button class="nav-btn" data-section="withdraw">
+                <span>💳</span>
+                <span>Withdraw</span>
+            </button>
+        </footer>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
