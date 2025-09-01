@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Ad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #0088cc;
+        }
+        .ad-button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .claim-button {
+            display: none; /* Initially hidden */
+            width: 80%;
+            margin: 10px auto;
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: #0088cc;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .timer-text {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 10px;
+        }
+        .ad-message {
+            font-size: 1em;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Watch Ad and Earn!</h1>
+        <p class="ad-message">Click the button below, watch the ad for 15 seconds, and then claim your points.</p>
+        
+        <button id="watchAdBtn" class="ad-button">Watch Ad</button>
+        <p id="timer" class="timer-text"></p>
+        <button id="claimPointsBtn" class="claim-button" disabled>Claim Points</button>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="ads.js"></script>
+</body>
+</html>
