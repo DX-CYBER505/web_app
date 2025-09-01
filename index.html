@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch Ad</title>
+    <title>Bot Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,55 +21,60 @@
         h1 {
             color: #0088cc;
         }
-        .ad-button {
-            display: block;
-            width: 80%;
-            margin: 10px auto;
-            padding: 15px;
-            font-size: 1.2em;
-            background-color: #28a745;
-            color: white;
-            border: none;
+        .info-box {
+            background-color: #e9ecef;
             border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .claim-button {
-            display: none; /* Initially hidden */
-            width: 80%;
-            margin: 10px auto;
             padding: 15px;
-            font-size: 1.2em;
-            background-color: #0088cc;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
+            margin-top: 15px;
         }
-        .timer-text {
-            font-size: 1.1em;
-            color: #555;
-            margin-top: 10px;
+        .balance-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #28a745;
         }
-        .ad-message {
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .action-button {
+            padding: 15px;
             font-size: 1em;
-            color: #777;
-            margin-top: 20px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
         }
+        #adsBtn { background-color: #28a745; }
+        #dailyBonusBtn { background-color: #ffc107; }
+        #referBtn { background-color: #007bff; }
+        #withdrawBtn { background-color: #dc3545; }
+        #adsBtn:hover { background-color: #218838; }
+        #dailyBonusBtn:hover { background-color: #e0a800; }
+        #referBtn:hover { background-color: #0069d9; }
+        #withdrawBtn:hover { background-color: #c82333; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Watch Ad and Earn!</h1>
-        <p class="ad-message">Click the button below, watch the ad for 15 seconds, and then claim your points.</p>
+        <h1>Your Dashboard</h1>
         
-        <button id="watchAdBtn" class="ad-button">Watch Ad</button>
-        <p id="timer" class="timer-text"></p>
-        <button id="claimPointsBtn" class="claim-button" disabled>Claim Points</button>
+        <div class="info-box">
+            <p>Current Balance:</p>
+            <p class="balance-text" id="balance">Loading...</p>
+        </div>
+
+        <div class="button-grid">
+            <button class="action-button" id="adsBtn">💰 Watch Ads</button>
+            <button class="action-button" id="dailyBonusBtn">🎁 Daily Bonus</button>
+            <button class="action-button" id="referBtn">👥 Refer & Earn</button>
+            <button class="action-button" id="withdrawBtn">💳 Withdraw</button>
+        </div>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="ads.js"></script>
+    <script src="dashboard.js"></script>
 </body>
 </html>
