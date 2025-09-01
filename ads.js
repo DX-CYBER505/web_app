@@ -1,35 +1,36 @@
-const adLink = "https://example.com/adsterra_ad"; // Change this to your actual ad link
-const timerDuration = 15; // in seconds
+// Function to send data back to the bot
+function sendToBot(action, data = {}) {
+    if (Telegram.WebApp) {
+        const payload = { action, ...data };
+        Telegram.WebApp.sendData(JSON.stringify(payload));
+    }
+}
 
-document.getElementById('watchAdBtn').addEventListener('click', () => {
-    // Open the ad link in a new tab
+// Handle button clicks
+document.getElementById('adsBtn').addEventListener('click', () => {
+    // For ads, we can still open an external link
+    const adLink = "https://example.com/adsterra_ad"; // Change to your ad link
     window.open(adLink, '_blank');
-
-    // Hide the 'Watch Ad' button and show the timer
-    document.getElementById('watchAdBtn').style.display = 'none';
-    const timerElement = document.getElementById('timer');
-    timerElement.textContent = `Please wait ${timerDuration} seconds...`;
-
-    let timeRemaining = timerDuration;
-    const interval = setInterval(() => {
-        timeRemaining--;
-        timerElement.textContent = `Please wait ${timeRemaining} seconds...`;
-        if (timeRemaining <= 0) {
-            clearInterval(interval);
-            timerElement.textContent = "Time's up! You can now claim your points.";
-            // Show and enable the 'Claim Points' button
-            document.getElementById('claimPointsBtn').style.display = 'block';
-            document.getElementById('claimPointsBtn').disabled = false;
-        }
-    }, 1000);
+    alert("Ad opened in a new tab. After watching, please wait for the points to be credited.");
+    // In a more advanced version, we would verify the ad view before awarding points.
 });
 
-document.getElementById('claimPointsBtn').addEventListener('click', () => {
-    // Send a message back to the bot
-    if (Telegram.WebApp) {
-        Telegram.WebApp.sendData(JSON.stringify({ action: 'claim_ad_points' }));
-        Telegram.WebApp.close(); // Close the web app after sending the data
-    } else {
-        alert('Telegram Web App is not available in this context.');
-    }
+document.getElementById('dailyBonusBtn').addEventListener('click', () => {
+    sendToBot('claim_daily_bonus');
+    Telegram.WebApp.close();
+});
+
+document.getElementById('referBtn').addEventListener('click', () => {
+    sendToBot('get_referral_link');
+    Telegram.WebApp.close();
+});
+
+document.getElementById('withdrawBtn').addEventListener('click', () => {
+    sendToBot('start_withdrawal');
+    Telegram.WebApp.close();
+});
+
+// Request initial data from the bot
+document.addEventListener('DOMContentLoaded', () => {
+    sendToBot('get_user_info');
 });
