@@ -96,7 +96,7 @@ def update_user_language(user_id, lang):
     conn.close()
 
 # --- Keyboard Markups ---
-VERCEL_URL = "https://web-app-tqkn-l1lgqs1cq-nexy-sunnys-projects.vercel.app"
+VERCEL_URL = "https://web-app-yih5-8cc54wc2t-nexy-sunnys-projects.vercel.app"
 
 main_menu_keyboard = [
     [KeyboardButton("Open Dashboard", web_app=WebAppInfo(url=VERCEL_URL))]
@@ -255,4 +255,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
     
