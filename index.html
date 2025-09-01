@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earning Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="user-info">
+                <span id="user-id">ID: Loading...</span>
+                <span id="balance">BALANCE: 0 POINTS</span>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="ad-section" id="ads-section">
+                <h2>Watch Ads & Earn</h2>
+                <div class="ad-tabs">
+                    <button class="tab-button active">Quick Ads</button>
+                    <button class="tab-button">Mega Ads</button>
+                </div>
+                
+                <div class="ad-card">
+                    <h3>Quick Ads ⚡️</h3>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" id="daily-progress" style="width: 0%;"></div>
+                    </div>
+                    <p class="progress-text"><span id="daily-watched">0</span>/30 ads remaining today</p>
+                    <button class="watch-ad-btn" id="watch-ad-btn">▶️ Watch Ad Now</button>
+                </div>
+            </section>
+            
+            <section class="info-section hidden" id="info-section">
+                <h2>Your Information</h2>
+                <div class="info-card">
+                    <p>Referral Link:</p>
+                    <code id="referral-link">Loading...</code>
+                    <button class="copy-btn" id="copy-referral">Copy</button>
+                    <p>Refer and Earn **500** points per user!</p>
+                </div>
+                <div class="info-card">
+                    <p id="bonus-status">Daily Bonus: Not claimed yet</p>
+                    <button class="action-btn" id="claim-bonus-btn">Claim Now</button>
+                </div>
+            </section>
+
+            <section class="withdraw-section hidden" id="withdraw-section">
+                <h2>Withdraw Funds</h2>
+                <div class="info-card">
+                    <p>Minimum Withdrawal: **10,000** points</p>
+                    <p>1 USDT = **10,000** points</p>
+                    <button class="action-btn" id="withdraw-btn">Withdraw Now</button>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer-nav">
+            <button class="nav-btn active" data-section="ads">
+                <span>⚡️</span>
+                <span>Ads</span>
+            </button>
+            <button class="nav-btn" data-section="info">
+                <span>👥</span>
+                <span>Refer/Bonus</span>
+            </button>
+            <button class="nav-btn" data-section="withdraw">
+                <span>💳</span>
+                <span>Withdraw</span>
+            </button>
+        </footer>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
